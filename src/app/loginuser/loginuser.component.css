@@ -1,0 +1,32 @@
+
+  .alert div {
+    padding: 8px;
+    border-radius: 12px;
+    opacity: 0%;
+    animation: alert 3s;
+  }
+  .go_regester{
+    font-weight: bold;
+    text-decoration: underline;
+    color: rgb(115, 115, 255);
+    cursor: pointer;
+  }
+  .go_regester:hover{
+    color: blue;
+  }
+  @keyframes alert {
+    0% {
+      opacity: 50%;
+    }
+    25% {
+      opacity: 100%;
+    }
+    50% {
+      opacity: 50%;
+    }
+    100% {
+      opacity: 0%;
+      display: none;
+    }
+  }
+  

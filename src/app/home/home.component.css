@@ -1,0 +1,39 @@
+.section{
+    width: 100%;
+    margin-top: 80px;
+    text-align: center;
+}
+.btn-toolbar{
+    margin: auto 16px 20px auto;
+    display: block;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+.blog-short{
+    width: 280px;
+    height: 320px;
+    border: 2px solid rgb(80, 80, 80);
+    margin: 32px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 20px 0 20px;
+}
+
+.btn-toolbar div button{
+    margin: 12px;
+}
+.blog-short a{
+    color: rgb(86, 86, 255);
+}
+.blog-short a:hover{
+    color: rgb(0, 0, 255);
+}
+.userBlogs{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,75 @@
+<section class="section">
+<div *ngIf="userDste;">
+        <img
+          alt=""
+          style="
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 2px black solid;
+          "
+        />
+        <h2>  {{userDste['usernaem']}}</h2>
+        <div class="btn-toolbar" role="toolbar" aria-label="">
+          <div class="btn-group" role="group" aria-label="">
+            <button type="button" class="btn btn-primary sm">
+              <a [routerLink]="['/addblog',userDste['id']]" routerLinkActive="router-link-active"
+                >افزودن بلاگ</a
+              >
+            </button>
+            <button type="button" class="btn btn-danger" (click)="logiot()">
+               خروج
+            </button>
+          </div>
+        </div>
+        <h4>بلاگ های من</h4>
+      <div class="userBlogs">
+        <div class="blog-short" *ngFor="let item of date">
+          <h4>{{item.head}}</h4>
+          <p>{{item.discription}}</p>
+          <a [routerLink]="['/blog',item.id]"routerLinkActive="router-link-active">مشاهده</a>
+          <a (click)="delblog(item.id)"  [routerLink]="['']" routerLinkActive="router-link-active">پاک کردن</a>
+        </div>
+      </div>
+      
+</div>
+<div *ngIf="!userDste">
+    <h2>وبلاگ من</h2>
+    <p>
+      بخعل شث صف ص9حفق صف ص9حفق صحفق ص ذبهصثلب حصثهلب صث بل صف ص9حفق صحفق ص
+      ذبهصثلب حصثهلب صث بل صففق صحفق ص ذبهصثلب حصثهلب صث بلصحفق ص ذبهصثلب حصثهلب
+      صث بلثص بص
+    </p>
+    <p>
+      بخعل شث صف ص9 صف ص9حفق صحفق ص ذبهصثلب حصثهلب صث بلحفق صحفق ص ذبهصثلب
+      حصثهلب صث بلثص بص
+    </p>
+    <p>
+      بخعل شث ص صف ص9حفق صحفق ص ذبهصثلب حصثهلب صث بلف ص9حصف ص9حق ص ذبهصثلب
+      حصثهلب صث بل صحفق ص ذبهصثلب حصثهلب صث بلثص بص
+    </p>
+    <p>
+      بخعل شث صف ص9حفق صحف صف ص9حفق صحفق ص ذبهصثلب حصثهلب صث بل صف ص9حفق صحفقهلب
+      صث ب ص9حفق صحفق ص ذبهصثلب حصثهلب صث بلق ص ذبهصثلب حصثهلب صث بلثص بص
+    </p>
+    <div class="btn-toolbar" role="toolbar" aria-label="">
+      <div class="btn-group" role="group" aria-label="">
+        <button type="button" class="btn btn-primary sm">
+          <a [routerLink]="['/regester']" routerLinkActive="router-link-active"
+            >ثبت نام</a
+          >
+        </button>
+        <button type="button" class="btn btn-success">
+          <a [routerLink]="['/loginuser']" routerLinkActive="router-link-active"
+            >ورود</a
+          >
+        </button>
+        <button type="button" class="btn btn-danger">
+          <a [routerLink]="['/blogs']" routerLinkActive="router-link-active"
+            >بلاگ ها</a
+          >
+        </button>
+      </div>
+    </div>
+</div>
+</section>

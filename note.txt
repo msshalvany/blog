@@ -1,0 +1,4 @@
+                     ==========RUN PRIJECT===============
+1. Copy the whole project to a local server with PHP ====>localhost wampe or xammp
+2. import file database.sql exsisting srver/database in mysql
+3. Open the CMD folder and type the command => ng serve

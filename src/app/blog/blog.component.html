@@ -1,0 +1,14 @@
+<div class="section">
+  <i class={{shapelike}} (click)="likechang($event)">{{showcontent.liks}}</i>
+  <i class="fa fa-comments coment">{{showcontent.coment}}</i>
+  <h2>{{ showcontent.head }}</h2>
+  <p>{{ showcontent.text }}</p>
+  <div *ngIf="login" style="display: flex;flex-direction: column;">
+    <textarea #coment id="coment" cols="100%" rows="10"></textarea>
+    <button (click)="sendcoment()" type="button" class="btn btn-primary">ثبت نطر</button>
+  </div>
+</div>
+<div class="coment_container" *ngFor="let item of coments">
+    <div class="usercoment"></div><span>{{item[0]}}</span>
+    <p class="comentuser">{{item.coment}}</p>
+</div>

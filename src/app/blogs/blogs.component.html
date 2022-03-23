@@ -1,0 +1,29 @@
+<h2>جدیدترین بلاگ ها</h2>
+  <div class="pagination" >
+    <a (click)="prevepags()">&laquo;</a>
+  <span #pagenate>
+    <a class="active" (click)="pagechang($event)">0</a>
+    <ng-container  *ngFor="let item of countpageshow" >
+      <a (click)="pagechang($event)">{{item}}</a>
+    </ng-container>    
+  </span>
+  <ng-container>
+    <a (click)="nextpags()">&raquo;</a>
+  </ng-container>
+  </div>
+  <div class="section">
+  <h1 *ngIf="date == null">یافت نشد</h1>
+    <div class="blog-short" id="blog-short" *ngFor="let item of date">
+      <h4>{{ item.head }}</h4>
+      <p>{{ item.discription }}</p>
+      
+      <a
+        [routerLink]="['/blog', item.id]"
+        routerLinkActive="router-link-active"
+      >مشاهده</a>
+      <i style="color: red;" id={{item.id}}  class={{item.class}} (click)="likechang($event)"
+        >{{item.liks}}</i
+      >
+      <i [routerLink]="['/blog',item.id]" routerLinkActive="router-link-active"  class="fa fa-comments coment">{{item.comment}}</i>
+    </div>
+</div>

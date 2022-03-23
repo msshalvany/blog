@@ -1,0 +1,20 @@
+<div class="section">
+    <form (ngSubmit)="onSubmit()" #form="ngForm" [formGroup]="blogform">
+        <label for="head">عنوان</label>
+        <textarea name="head" id=""  style="width:40%;height: 40px;" formControlName="head"></textarea>
+        <label for="text">متن</label>
+        <textarea name="text" id="" style="width: 100%;height: 300px;" formControlName="text"></textarea>
+        <div [ngSwitch]="stateform"  class="form-text alert" style="color: rgb(255, 255, 255); text-align: center;">
+            <div *ngSwitchCase="'0'" style="background-color: rgb(150, 33, 33);margin: 20px;font-weight: bold;">شما قبلا ثبت نام کردید</div>
+            <div *ngSwitchCase="'1'" style="background-color: rgb(25, 85, 25);margin: 20px;font-weight: bold;">عملیات موفق</div>
+        </div>
+        <button
+        type="submit"
+        class="btn btn-primary"
+        style="margin: 25px;"
+        [disabled]="!blogform.valid"
+      >
+        Submit
+      </button>
+    </form>
+</div>
