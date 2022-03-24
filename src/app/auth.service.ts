@@ -32,7 +32,7 @@ export class AuthService {
       username : username,
       password : password
    }
-      this.http.post('http://localhost/blog/server/login.php',date).subscribe((res:any)=>{
+      this.http.post('http://localhost/Angular/blog/login.php',date).subscribe((res:any)=>{
       this.setDateUser(res)
    })
    }

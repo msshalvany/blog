@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     this.userDste=this.auth.getUserDate()
     if (this.userDste) {
        var  id =this.userDste['id']
-       this.http.post('http://localhost/blog/server/bloguser.php',id).subscribe(
+       this.http.post('http://localhost/Angular/blog/bloguser.php',id).subscribe(
         (response)=>{
             this.date= JSON.stringify(response)
             this.date =JSON.parse(this.date)
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     }
   
   delblog(id:any){
-      this.http.get(`http://localhost/blog/server/delblog.php?id=${id}`).subscribe(()=>{
+      this.http.get(`http://localhost/Angular/blog/delblog.php?id=${id}`).subscribe(()=>{
         this.router.navigate(['home'])
       })
   }

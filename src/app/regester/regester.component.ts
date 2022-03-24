@@ -36,7 +36,7 @@ export class RegesterComponent implements OnInit {
    if (date.password != date.repasswoerd){
     this.stateForm='ps'
     }else{
-    this.http.post('http://localhost/blog/server/adduser.php',date).subscribe((res)=>{
+    this.http.post('http://localhost/Angular/blog/adduser.php',date).subscribe((res)=>{
         this.stateForm=res
     })
 }
