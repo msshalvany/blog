@@ -1,6 +1,6 @@
 <div class="section">
   <i class={{shapelike}} (click)="likechang($event)">{{showcontent.liks}}</i>
-  <i class="fa fa-comments coment">{{showcontent.coment}}</i>
+  <i class="fa fa-comments coment">{{showcontent.comment}}</i>
   <h2>{{ showcontent.head }}</h2>
   <p>{{ showcontent.text }}</p>
   <div *ngIf="login" style="display: flex;flex-direction: column;">
@@ -9,6 +9,6 @@
   </div>
 </div>
 <div class="coment_container" *ngFor="let item of coments">
-    <div class="usercoment"></div><span>{{item[0]}}</span>
+    <img class="usercoment" src="http://localhost/blog/server/img/{{item.img}}">
     <p class="comentuser">{{item.coment}}</p>
 </div>

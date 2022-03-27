@@ -4,6 +4,7 @@
     border-radius: 12px;
     opacity: 0%;
     animation: alert 3s;
+    font-weight: bold;
   }
   .go_regester{
     font-weight: bold;

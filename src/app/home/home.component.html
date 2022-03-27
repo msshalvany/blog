@@ -1,6 +1,7 @@
 <section class="section">
 <div *ngIf="userDste;">
         <img
+        [src]="pathimg" 
           alt=""
           style="
             width: 250px;
@@ -20,6 +21,7 @@
             <button type="button" class="btn btn-danger" (click)="logiot()">
                خروج
             </button>
+           
           </div>
         </div>
         <h4>بلاگ های من</h4>

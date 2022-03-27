@@ -20,15 +20,34 @@ export class BlogComponent{
     constructor(private route: ActivatedRoute,private http: HttpClient,private auth:AuthService,private routeer:Router) {
       this.getcoment()
     }
+   
     getcoment(){
+      var idusers:any=[]
       var routeParams = this.route.snapshot.paramMap;
       var id = routeParams.get('id');  
-      this.http.get(`http://localhost/angular/blog/comment/comentblog.php?id=${id}`).subscribe((res:any)=>{
+      this.http.get(`http://localhost/blog/server/comment/comentblog.php?id=${id}`).subscribe((res:any)=>{
         this.coments=res
-        console.log(res)
+        for (let index = 0; index < res.length; index++) {
+          idusers.push(res[index].userid);
+        }
+        this.http.post(`http://localhost/blog/server/comment/user.php`,idusers).subscribe((res:any)=>{
+          console.log(this.coments);
+          console.log(res);
+          for (let index = 0; index < res.length; index++) {
+            for (let index2 = 0; index2 < this.coments.length; index2++) {
+                if (res[index].id==this.coments[index2].userid) {
+                  this.coments[index2]["img"]=res[index].img
+                }
+            }
+          }
+          console.log(this.coments);
+
+        })
       })
+
+      
       if (Number(id)) {
-          this.http.get(`http://localhost/Angular/blog/Blog.php?id=${id}`).subscribe((response)=>{
+          this.http.get(`http://localhost/blog/server/Blog.php?id=${id}`).subscribe((response)=>{
               this.date= JSON.stringify(response)
               this.date =JSON.parse(this.date)
                       this.showcontent=this.date
@@ -60,7 +79,7 @@ export class BlogComponent{
               var last =Number((e.target as HTMLInputElement).innerHTML)
               last++
               (e.target as HTMLInputElement).innerHTML=String(last)
-              this.http.get(`http://localhost/Angular/blog/like/add.php?id=${id}&userid=${userid}`).subscribe(()=>{
+              this.http.get(`http://localhost/blog/server/like/add.php?id=${id}&userid=${userid}`).subscribe(()=>{
                 this.auth.getUsertrfresh()
               })
             }else{
@@ -68,7 +87,7 @@ export class BlogComponent{
               var last =Number((e.target as HTMLInputElement).innerHTML)
               last--
               (e.target as HTMLInputElement).innerHTML=String(last)
-              this.http.get(`http://localhost/Angular/blog/like/mines.php?id=${id}&userid=${userid}`).subscribe(()=>{
+              this.http.get(`http://localhost/blog/server/like/mines.php?id=${id}&userid=${userid}`).subscribe(()=>{
                 this.auth.getUsertrfresh()
               })
             }
@@ -86,7 +105,7 @@ export class BlogComponent{
         userid :userid,
         blogid : blogid
       }
-      this.http.post('http://localhost/angular/blog/comment/addcoment.php',date).subscribe(()=>{
+      this.http.post('http://localhost/blog/server/comment/addcoment.php',date).subscribe(()=>{
           this.getcoment()
       })
     }

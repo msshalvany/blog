@@ -1,6 +1,6 @@
 <h2>جدیدترین بلاگ ها</h2>
   <div class="pagination" >
-    <a (click)="prevepags()">&laquo;</a>
+    <a class="move_page" (click)="prevepags()">&laquo;</a>
   <span #pagenate>
     <a class="active" (click)="pagechang($event)">0</a>
     <ng-container  *ngFor="let item of countpageshow" >
@@ -8,7 +8,7 @@
     </ng-container>    
   </span>
   <ng-container>
-    <a (click)="nextpags()">&raquo;</a>
+    <a class="move_page" (click)="nextpags()">&raquo;</a>
   </ng-container>
   </div>
   <div class="section">

@@ -26,11 +26,11 @@
       </div>
       <a [routerLink]="['/regester']" routerLinkActive="router-link-active"  class="go_regester">ایجاد حساب کاربری</a>
         <div [ngSwitch]="stateForm"  class="form-text alert" style="color: rgb(255, 255, 255); text-align: center;">
-          <div *ngSwitchCase="0" style="background-color: rgb(150, 33, 33);margin: 20px;font-weight: bold;">اطلاعات صحیح نمی باشد</div>
-          <div *ngSwitchCase="!0" style="background-color: rgb(25, 85, 25);margin: 20px;font-weight: bold;">عملیات موفق</div>
-          <div *ngSwitchCase="'noValid'" style="background-color: rgb(207, 218, 5);margin: 20px;font-weight: bold;">اطلاعات فرمت درستی ندارند</div>
+          <div *ngSwitchCase="0" style="background-color: rgb(150, 33, 33);">اطلاعات صحیح نمی باشد</div>
+          <div *ngSwitchCase="!0" style="background-color: rgb(25, 85, 25);">عملیات موفق</div>
+          <div *ngSwitchCase="'noValid'" style="background-color: rgb(207, 218, 5);">اطلاعات فرمت درستی ندارند</div>
+          <div style="visibility: hidden;" *ngSwitchCase=null>salam</div>
         </div>
       <button type="submit" class="btn btn-primary btn-lg"  [disabled]="!checkform.valid">Submit</button>
     </form>
   </section>
-  

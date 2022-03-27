@@ -4,6 +4,7 @@
     border-radius: 12px;
     opacity: 0%;
     animation: alert 4s;
+    font-weight: bold;
   }
   @keyframes alert {
     0% {

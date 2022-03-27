@@ -1,5 +1,5 @@
 <section>
-  <form (ngSubmit)="onSubmit()" #form="ngForm" [formGroup]="checkform">
+  <form (ngSubmit)="onSubmit()" #form="ngForm" [formGroup]="checkform" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Username</label>
         <input
@@ -48,9 +48,19 @@
           رمز باید با رمز قبلی برابر باشد
         </div>
       </div>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">profile photo</label>
+        <input class="form-control" type="file" id="formFile"  placeholder="File" (change)="fileChange($event)"  formControlName="imgfile">
+      </div>
+      <div *ngIf="file==null">
+        <div id="emailHelp" class="form-text" style="color: red;font-weight: bold;">
+          فرمت باید عکس باشد
+        </div>
+      </div>
       <div [ngSwitch]="stateForm"  class="form-text alert" style="color: rgb(255, 255, 255); text-align: center;">
-        <div *ngSwitchCase="0" style="background-color: rgb(150, 33, 33);margin: 20px;font-weight: bold;">شما قبلا ثبت نام کردید</div>
-        <div *ngSwitchCase="1" style="background-color: rgb(25, 85, 25);margin: 20px;font-weight: bold;">عملیات موفق</div>
+        <div *ngSwitchCase="0" style="background-color: rgb(150, 33, 33);">شما قبلا ثبت نام کردید</div>
+        <div *ngSwitchCase="1" style="background-color: rgb(25, 85, 25);">عملیات موفق</div>
+        <div style="visibility: hidden;" *ngSwitchCase=null>salam</div>
       </div>
     <button type="submit" class="btn btn-primary btn-lg"  [disabled]="!checkform.valid">Submit</button>
   </form>

@@ -9,14 +9,21 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
- userDste=null
+ pathimg:any="http://localhost/blog/server/img/"
+ userDste:any=null
  login:any =null
  date:any
   constructor(private auth:AuthService,private router :Router,private route:ActivatedRoute, private http:HttpClient) {
     this.userDste=this.auth.getUserDate()
+    console.log(this.userDste);
+    if (this.userDste) {
+       var img=this.userDste.img
+    this.pathimg=`http://localhost/blog/server/img/${img}`
+    }
+    
     if (this.userDste) {
        var  id =this.userDste['id']
-       this.http.post('http://localhost/Angular/blog/bloguser.php',id).subscribe(
+       this.http.post('http://localhost/blog/server/bloguser.php',id).subscribe(
         (response)=>{
             this.date= JSON.stringify(response)
             this.date =JSON.parse(this.date)
@@ -26,7 +33,7 @@ export class HomeComponent implements OnInit {
     }
   
   delblog(id:any){
-      this.http.get(`http://localhost/Angular/blog/delblog.php?id=${id}`).subscribe(()=>{
+      this.http.get(`http://localhost/blog/server/delblog.php?id=${id}`).subscribe(()=>{
         this.router.navigate(['home'])
       })
   }

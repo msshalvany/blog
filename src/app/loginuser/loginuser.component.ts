@@ -32,7 +32,7 @@ export class LoginuserComponent implements OnInit {
       username : this.username?.value,
       password : this.password?.value,
    } 
-    this.http.post('http://localhost/Angular/blog/login.php',date).subscribe((res:any)=>{
+    this.http.post('http://localhost/blog/server/login.php',date).subscribe((res:any)=>{
         this.stateForm=res
         if (res=='noValid') {
           this.stateForm='noValid'
@@ -47,6 +47,7 @@ export class LoginuserComponent implements OnInit {
           }, 2000);
         }
     })
+    this.stateForm=null
   }
     get username(){return this.checkform.get('username')}
     get password(){return this.checkform.get('password')}

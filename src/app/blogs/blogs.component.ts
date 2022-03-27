@@ -28,7 +28,7 @@ export class BlogsComponent implements OnInit{
         this.userLiked = this.userLiked.liked
         this.userLiked = this.userLiked.split(',')
       }
-      this.http.get(`http://localhost/Angular/blog/allBlog.php?page=${this.page}`).subscribe(
+      this.http.get(`http://localhost/blog/server/allBlog.php?page=${this.page}`).subscribe(
         (response:any)=>{
           for (let index = 0; index < response[response.length-1]-1; index++) {
               this.countpage[index]=index+1
@@ -52,7 +52,7 @@ export class BlogsComponent implements OnInit{
       )
     }else{
       this.route.params.subscribe((param)=>{
-          this.http.get(`http://localhost/Angular/blog/search.php?like=${param['content']}&page=${this.page}`).subscribe(
+          this.http.get(`http://localhost/blog/server/search.php?like=${param['content']}&page=${this.page}`).subscribe(
           (response:any)=>{
             for (let index = 0; index < response[response.length-1]-1; index++) {
               this.countpage[index]=index+1
@@ -153,7 +153,7 @@ export class BlogsComponent implements OnInit{
         var last =Number((e.target as HTMLInputElement).innerHTML)
         last++
         (e.target as HTMLInputElement).innerHTML=String(last)
-        this.http.get(`http://localhost/Angular/blog/like/add.php?id=${id}&userid=${userid}`).subscribe(()=>{
+        this.http.get(`http://localhost/blog/server/like/add.php?id=${id}&userid=${userid}`).subscribe(()=>{
           this.auth.getUsertrfresh()
         })
       }else{
@@ -161,7 +161,7 @@ export class BlogsComponent implements OnInit{
         var last =Number((e.target as HTMLInputElement).innerHTML)
         last--
         (e.target as HTMLInputElement).innerHTML=String(last)
-        this.http.get(`http://localhost/Angular/blog/like/mines.php?id=${id}&userid=${userid}`).subscribe(()=>{
+        this.http.get(`http://localhost/blog/server/like/mines.php?id=${id}&userid=${userid}`).subscribe(()=>{
           this.auth.getUsertrfresh()
         })
       }

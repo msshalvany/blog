@@ -7,14 +7,14 @@
 .sidenav {
   direction: rtl;
   height: 100%;
-  width: 200px;
+  width: 160px;
   position: fixed;
   z-index: 0;
   right: 0;
   margin-top: 56px;
   background-color: #111;
   overflow-x: hidden;
-  padding: 20px 12px 0 0;
+  padding: 20px 12px 0 12px;
 }
 .sidenav-button {
   direction: rtl;
@@ -44,7 +44,44 @@
   margin-right: 240px;
   padding: 80px 0 0 30px;
 }
+.sidenav a{
+  border-radius:50%;
+  width: fit-content;
+  padding: 12px;
+}
+.sidenav a:hover{
+  animation: a .6s 1 ;
+}
+@keyframes a {
+  0%{
+    /* border-left: 2px solid #818181; */
+    box-shadow: #818181 0px 0px 1px;
 
+  }
+  25%{
+    /* border-top: 2px solid #818181; */
+    box-shadow: #818181 0px 0px 12px;
+
+
+  }
+  50%{
+    /* border-right: 2px solid #818181; */
+    box-shadow: #818181 0px 0px 25px;
+
+
+  }
+  75%{
+    /* border-bottom: 2px solid #818181; */
+    box-shadow: #818181 0px 0px 12px;
+
+
+  }
+  100%{
+    /* border-left: 2px solid #818181; */
+    box-shadow: #818181 0px 0px 0px;
+
+  }
+}
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;

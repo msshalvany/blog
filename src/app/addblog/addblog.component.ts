@@ -26,7 +26,7 @@ export class AddblogComponent implements OnInit {
             text : this.text?.value,
             userid:id
         }
-        this.http.post('http://localhost/Angular/blog/addblog.php',date).subscribe((res)=>{
+        this.http.post('http://localhost/blog/server/addblog.php',date).subscribe((res)=>{
             if (res) {
               this.stateform=1
               setTimeout(() => {
