@@ -41,7 +41,7 @@ if ($user) {
 $conn = new mysqli($servername, $username, $password, $dbname);
 $user=false;
 $img=$_FILES['file']['name'];
-$sql = "INSERT INTO user (username, email, password,img)VALUES ('$userinfo->username', '$userinfo->email', '$userinfo->password','$img')";
+$sql = "INSERT INTO user (username, email, password,img,liked )VALUES ('$userinfo->username', '$userinfo->email', '$userinfo->password','$img','')";
 $result = $conn->query($sql);
 echo json_encode('1');
 $conn->close();

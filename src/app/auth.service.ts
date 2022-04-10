@@ -47,8 +47,6 @@ export class AuthService {
   logout(){
     this.behaveuseer.next(false)
   }
-  
-  
 }
 
 

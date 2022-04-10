@@ -8,7 +8,6 @@ $password = "";
 $dbname = "blog";
 $postdata = file_get_contents("php://input");
 $dateRequest = json_decode($postdata);
-
 $conn = new mysqli($servername, $username, $password, $dbname);
 $sql = "SELECT * FROM blogs WHERE userid=$dateRequest";
 $result = $conn->query($sql);
@@ -21,6 +20,6 @@ if ($result->num_rows > 0) {
     echo $date;
   }
    else {
-    echo "0 results";
+    echo "0";
   }
   $conn->close();

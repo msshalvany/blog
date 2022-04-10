@@ -31,8 +31,6 @@ export class BlogComponent{
           idusers.push(res[index].userid);
         }
         this.http.post(`http://localhost/blog/server/comment/user.php`,idusers).subscribe((res:any)=>{
-          console.log(this.coments);
-          console.log(res);
           for (let index = 0; index < res.length; index++) {
             for (let index2 = 0; index2 < this.coments.length; index2++) {
                 if (res[index].id==this.coments[index2].userid) {
@@ -40,14 +38,12 @@ export class BlogComponent{
                 }
             }
           }
-          console.log(this.coments);
-
         })
       })
 
       
       if (Number(id)) {
-          this.http.get(`http://localhost/blog/server/Blog.php?id=${id}`).subscribe((response)=>{
+          this.http.get(`http://localhost/blog/server/blog.php?id=${id}`).subscribe((response)=>{
               this.date= JSON.stringify(response)
               this.date =JSON.parse(this.date)
                       this.showcontent=this.date

@@ -16,7 +16,7 @@ $password = "";
 $dbname = "blog";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-$sql = "INSERT INTO blogs (head, text, userid,discription)VALUES ('$dateRequest->head', '$dateRequest->text', '$dateRequest->userid','$dateRequest->descrption')";
+$sql = "INSERT INTO blogs (head, text, userid,discription,liks,comment )VALUES ('$dateRequest->head', '$dateRequest->text', '$dateRequest->userid','$dateRequest->descrption','0','0')";
 $result = $conn->query($sql);
 echo json_encode('1');
 $conn->close();

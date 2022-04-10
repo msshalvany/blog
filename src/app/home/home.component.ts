@@ -15,21 +15,17 @@ export class HomeComponent implements OnInit {
  date:any
   constructor(private auth:AuthService,private router :Router,private route:ActivatedRoute, private http:HttpClient) {
     this.userDste=this.auth.getUserDate()
-    console.log(this.userDste);
     if (this.userDste) {
        var img=this.userDste.img
     this.pathimg=`http://localhost/blog/server/img/${img}`
+    var  id =this.userDste['id']
+    this.http.post('http://localhost/blog/server/bloguser.php',id).subscribe(
+     (response)=>{
+         this.date= JSON.stringify(response)
+         this.date =JSON.parse(this.date)
+     }
+   )   
     }
-    
-    if (this.userDste) {
-       var  id =this.userDste['id']
-       this.http.post('http://localhost/blog/server/bloguser.php',id).subscribe(
-        (response)=>{
-            this.date= JSON.stringify(response)
-            this.date =JSON.parse(this.date)
-        }
-    )   
-}
     }
   
   delblog(id:any){

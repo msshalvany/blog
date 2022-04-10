@@ -57,6 +57,9 @@ export class RegesterComponent implements OnInit {
       console.log(this.file);
       this.http.post('http://localhost/blog/server/adduser.php',formData).subscribe((res)=>{
         this.stateForm=res
+        setTimeout(() => {
+          this.route.navigate(['/loginuser'])
+        }, 2000);
     })
     
 }
